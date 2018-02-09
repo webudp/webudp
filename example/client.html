@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="./node_modules/webudp/client/signal.js"></script>
+  <script src="./node_modules/webudp/client/index.js"></script>
+
+  <script>
+    class WebUDP extends WebUDPClient {
+      constructor(addr) {
+        super({ addr: addr })
+      }
+
+      onClose() {
+        console.log('closed')
+      }
+
+      onOpen() {
+        console.log('opened')
+        this.send('hello udp server')
+
+        setTimeout(() => {
+          this.close()
+        }, 5000)
+      }
+
+      onError(err) {
+        console.log('error: ', err)
+      }
+
+      onMessage(data) {
+        console.log('data', data)
+
+        setTimeout(() => {
+          this.send('hello from UDP client again')
+        }, 1000)
+      }
+    }
+
+    const webUDP = new WebUDP('http://localhost:8001')
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

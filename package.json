@@ -1,0 +1,17 @@
+{
+  "name": "webudp",
+  "version": "0.0.3",
+  "description": "WebUDP based on WebRTC",
+  "keywords": ["webudp", "webrtc", "client", "server"],
+  "license": "MIT",
+  "author": {
+    "name": "Ali Najafizadeh",
+    "url": "https://github.com/alinz"
+  },
+  "repository": {
+    "url": "https://github.com/webudp/webudp.git"
+  },
+  "dependencies": {
+    "wrtc": "^0.0.66"
+  }
+}
